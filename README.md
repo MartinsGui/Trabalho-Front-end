@@ -53,8 +53,4 @@ O projeto inclui um testes funcionais para garantir que a funcionalidade princip
     npm start
 ## Aautor 
 
-<<<<<<< HEAD
 Guilherme Martins
-=======
-Guilherme Martins
->>>>>>> cbf15d27144ab3bef699c285da111a33e1c5401d
