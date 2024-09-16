@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Coleção de Carrinhos HotWheels - CRUD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação desenvolvida em ReactJS para gerenciar uma coleção de carrinhos HotWheels. Utiliza React Router para navegação entre páginas, Material-UI para estilização e Axios para comunicação com a API.
 
-## Available Scripts
+## Framework (Create React App)
 
-In the project directory, you can run:
+O projeto foi criado utilizando o `create-react-app`, uma ferramenta que configura um ambiente de desenvolvimento moderno e otimizado para React. Ela inclui um servidor de desenvolvimento, suporte a módulos ES, e uma configuração básica de Webpack.
 
-### `npm start`
+## Estilização (Material-UI)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para estilização, foi utilizada a biblioteca Material-UI, que proporciona um conjunto de componentes de interface do usuário prontos para uso e uma estilização consistente e moderna. Material-UI foi escolhido devido à sua capacidade de personalização e integração com React.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Rotas
 
-### `npm test`
+A navegação da aplicação é gerenciada pela biblioteca `react-router-dom`. As páginas da aplicação são definidas no componente principal `App.js` e são acessíveis através das seguintes rotas:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Home:** `/`
+- **Sobre:** `/about`
+- **Carros:** `/cars`
+- **Adicionar Carro:** `/add-car`
 
-### `npm run build`
+As rotas são configuradas no arquivo `App.js`, que também envolve as páginas com o layout de navegação.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Componentes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **NavBar:** Componente de navegação que utiliza o `AppBar` e `Drawer` do Material-UI para criar um menu de hambúrguer interativo.
+- **Home:** Página inicial com uma imagem e descrição do projeto.
+- **About:** Página com informações adicionais sobre o projeto.
+- **Cars:** Página que lista todos os carros adicionados e permite exclusão.
+- **AddCar:** Página com formulário para adicionar novos carros à coleção.
+- **CarList:** Componente que exibe a lista de carros.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Validação de Formulários
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A validação dos formulários é gerenciada pelo `react-hook-form` combinado com a biblioteca `zod`. Estas ferramentas garantem que os dados inseridos estejam corretos antes de serem submetidos.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Testes Funcionais
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+O projeto inclui um testes funcionais para garantir que a funcionalidade principal esteja funcionando como esperado. Estes testes são escritos utilizando a biblioteca `jest` e `react-testing-library`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Instalação
 
-## Learn More
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/MartinsGui/Trabalho-Front-end.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Baixando as dependências 
+    npm i ou npm install
 
-### Code Splitting
+3. Rodar o programa (dentro da pasta do arquivo)
+    npm start
+## Aautor 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Guilherme Martins

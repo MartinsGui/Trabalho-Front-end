@@ -1,0 +1,46 @@
+{
+  "cars": [
+    {
+      "id": "2",
+      "name": "Camaro",
+      "brand": "GM",
+      "color": "Amarelo",
+      "year": "2010"
+    },
+    {
+      "id": "4",
+      "name": "Madza",
+      "brand": "Madz",
+      "color": "Cinza",
+      "year": "1998"
+    },
+    {
+      "id": "5",
+      "name": "F350",
+      "brand": "Ford",
+      "color": "Bordo",
+      "year": "2000"
+    },
+    {
+      "id": "6b17",
+      "name": "Audi A3",
+      "brand": "Audi",
+      "color": "verde musgo",
+      "year": "2021"
+    },
+    {
+      "id": "d896",
+      "name": "Pálio",
+      "brand": "Fiat",
+      "color": "Vermelha",
+      "year": "1996"
+    },
+    {
+      "id": "f9e0",
+      "name": "Corolla",
+      "brand": "Toyota",
+      "color": "Prata",
+      "year": "2020"
+    }
+  ]
+}

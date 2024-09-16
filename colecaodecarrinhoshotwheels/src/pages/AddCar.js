@@ -1,81 +1,96 @@
 import React, { useState } from 'react';
-import { useCars } from '../context/CarContext';
-import { Container, Typography, TextField, Button, Paper, Snackbar, Alert, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { TextField, Button, Container, Typography, Grid } from '@mui/material';
+import axios from 'axios';
 
 const AddCar = () => {
-  const { cars, setCars } = useCars();
-  const [name, setName] = useState('');
-  const [brand, setBrand] = useState('');
-  const [color, setColor] = useState('');
-  const [year, setYear] = useState('');
-  const [message, setMessage] = useState('');
-  const [open, setOpen] = useState(false);
+  const [car, setCar] = useState({ name: '', brand: '', color: '', year: '' });
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCar((prevCar) => ({ ...prevCar, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const newCar = { id: cars.length + 1, name, brand, color, year };
-    setCars([...cars, newCar]);
-    setMessage('Carro adicionado com sucesso!');
-    setOpen(true);
-    setName('');
-    setBrand('');
-    setColor('');
-    setYear('');
+    setLoading(true);
+    try {
+      const response = await axios.post('http://localhost:5000/cars', car);
+      if (response.status === 201) { // Verifica se a resposta foi bem-sucedida
+        alert('Carro adicionado com sucesso!');
+        navigate('/cars');
+      } else {
+        alert('Falha ao adicionar carro');
+      }
+    } catch (error) {
+      console.error('Erro ao adicionar o carro:', error);
+      alert('Erro ao adicionar carro.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <Container maxWidth="md">
-      <Paper elevation={3} style={{ padding: '20px', textAlign: 'center' }}>
-        <Typography variant="h4" gutterBottom>
-          Adicionar Carro
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <Box mb={2}>
+    <Container>
+      <Typography variant="h4" gutterBottom>
+        Adicionar Carro
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
             <TextField
-              label="Nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
               fullWidth
+              label="Modelo"
+              name="name"
+              value={car.name}
+              onChange={handleChange}
               required
             />
-          </Box>
-          <Box mb={2}>
+          </Grid>
+          <Grid item xs={12} sm={6}>
             <TextField
+              fullWidth
               label="Marca"
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              fullWidth
+              name="brand"
+              value={car.brand}
+              onChange={handleChange}
               required
             />
-          </Box>
-          <Box mb={2}>
+          </Grid>
+          <Grid item xs={12} sm={6}>
             <TextField
+              fullWidth
               label="Cor"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
-              fullWidth
+              name="color"
+              value={car.color}
+              onChange={handleChange}
               required
             />
-          </Box>
-          <Box mb={2}>
+          </Grid>
+          <Grid item xs={12} sm={6}>
             <TextField
-              label="Ano"
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
               fullWidth
+              label="Ano"
+              name="year"
+              value={car.year}
+              onChange={handleChange}
               required
+              type="number"
             />
-          </Box>
-          <Button type="submit" variant="contained" color="primary">
-            Adicionar Carro
-          </Button>
-        </form>
-        <Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>
-          <Alert onClose={() => setOpen(false)} severity="success">
-            {message}
-          </Alert>
-        </Snackbar>
-      </Paper>
+          </Grid>
+        </Grid>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={loading}
+          style={{ marginTop: '20px' }}
+        >
+          {loading ? 'Adicionando...' : 'Adicionar Carro'}
+        </Button>
+      </form>
     </Container>
   );
 };

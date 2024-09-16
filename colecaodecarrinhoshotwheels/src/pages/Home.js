@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Typography, Box, Paper } from '@mui/material';
+import carImage from '../components/images/hot_wheels.jpg';
 
 const Home = () => {
   return (
@@ -13,7 +14,8 @@ const Home = () => {
         </Typography>
         <Box mt={4} display="flex" justifyContent="center">
           <img
-            src = "/images/hot_wheels.jpg"
+            src={carImage}
+            alt="Hot Wheels"
             style={{ width: '100%', maxWidth: '600px', borderRadius: '8px' }}
           />
         </Box>

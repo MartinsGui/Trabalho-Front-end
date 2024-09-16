@@ -1,12 +1,13 @@
-// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; // Se você tiver estilos
 import App from './App';
+import { CarProvider } from './context/CarContext'; // Importa o CarProvider
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CarProvider>
+      <App />
+    </CarProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

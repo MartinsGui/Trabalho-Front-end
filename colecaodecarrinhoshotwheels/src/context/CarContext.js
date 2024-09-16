@@ -1,16 +1,26 @@
-// src/context/CarContext.js
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
-const CarContext = createContext();
+export const CarContext = createContext();
 
 export const CarProvider = ({ children }) => {
   const [cars, setCars] = useState([]);
 
+  const addCar = (car) => {
+    setCars((prevCars) => [...prevCars, { ...car, id: Date.now().toString() }]);
+  };
+
+  const removeCar = (id) => {
+    setCars((prevCars) => prevCars.filter(car => car.id !== id));
+  };
+
   return (
-    <CarContext.Provider value={{ cars, setCars }}>
+    <CarContext.Provider value={{ cars, addCar, removeCar }}>
       {children}
     </CarContext.Provider>
   );
 };
 
-export const useCars = () => useContext(CarContext);
+CarProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

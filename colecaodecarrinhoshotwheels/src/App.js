@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { CarProvider } from './context/CarContext'; // Adicione a importação do CarProvider
 import Home from './pages/Home';
 import About from './pages/About';
 import Cars from './pages/Cars';
 import AddCar from './pages/AddCar';
-import { CarProvider } from './context/CarContext';
+import NavBar from './components/NavBar';
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <CarProvider>
+    <CarProvider> {/* Envolva o Router com o CarProvider */}
+      <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -18,9 +18,9 @@ function App() {
           <Route path="/cars" element={<Cars />} />
           <Route path="/add-car" element={<AddCar />} />
         </Routes>
-      </CarProvider>
-    </Router>
+      </Router>
+    </CarProvider>
   );
-}
+};
 
 export default App;
