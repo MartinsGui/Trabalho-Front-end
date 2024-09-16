@@ -8,6 +8,4 @@ test('renders App and routes correctly', () => {
       <App />
     </CarProvider>
   );
-
-  // Add appropriate assertions based on expected behavior
 });
