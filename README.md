@@ -125,37 +125,24 @@ Para o backend, o projeto utiliza `json-server` para servir um arquivo JSON como
    npm install -g json-server
 Inicie o json-server para servir o db.json como uma API:
 
-bash
-Copiar código
-json-server --watch public/db.json --port 5000
-O backend estará disponível em http://localhost:5000.
+   json-server --watch public/db.json --port 5000
+   O backend estará disponível em http://localhost:5000.
 
-Frontend
-Clone o repositório:
+## Frontend
+1- Clone o repositório:
+   git clone https://github.com/MartinsGui/Trabalho-Front-end.git
 
-bash
-Copiar código
-git clone https://github.com/MartinsGui/Trabalho-Front-end.git
-Navegue para o diretório do projeto:
+2- Navegue para o diretório do projeto:
+   cd Trabalho-Front-end
 
-bash
-Copiar código
-cd Trabalho-Front-end
-Instale as dependências do projeto:
+3- Instale as dependências do projeto:
+   npm install
 
-bash
-Copiar código
-npm install
-Instale o axios:
-
-bash
-Copiar código
-npm install axios
-Inicie o servidor de desenvolvimento React:
-
-bash
-Copiar código
-npm start
+4- Instale o axios:
+   npm install axios
+   
+5- Inicie o servidor de desenvolvimento React:
+   npm start
 O frontend estará disponível em http://localhost:3000.
 
 ## Uso
